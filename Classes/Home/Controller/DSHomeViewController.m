@@ -440,21 +440,20 @@
     NSString *peerUserID = status.user.userId;
     NSString *currentUserID = [AVUser currentUser].objectId;
     NSArray *clientIds = [[NSArray alloc] initWithObjects:currentUserID,peerUserID, nil];
-    //AVIMClient *imclient = [[ConversationStore sharedInstance] imClient];
-    AVIMClient *imclient = [[AVIMClient alloc] init];
+    AVIMClient *imclient = [[ConversationStore sharedInstance] imClient];
     AVIMConversationQuery *query = [imclient conversationQuery];
    
     query.limit = 10;
     query.skip = 0;
     [query whereKey:kAVIMKeyMember containsAllObjectsInArray:clientIds];
     [query whereKey:AVIMAttr(@"type") equalTo:[NSNumber numberWithInt:kConversationType_OneOne]];
-     NSLog(@"%@",clientIds);
+     NSLog(@"%@",query);
     [query findConversationsWithCallback:^(NSArray *objects , NSError *error){
         NSLog(@"%@",error);
         if (error){
             [MessageDisplayer displayError:error];
         }else if (!objects || [objects count] < 1){
-            [imclient createConversationWithName:nil
+            [imclient createConversationWithName:status.user.name
                                        clientIds:clientIds
                                       attributes:@{@"type":[NSNumber numberWithInt:kConversationType_OneOne]}
                                                    options:AVIMConversationOptionNone

@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
 #import "DSTabBarController.h"
-
+#import "ConversationStore.h"
 
 
 @interface LoginViewController () <UITextFieldDelegate>{
@@ -94,7 +94,7 @@
         NSCharacterSet *whiteNewChars = [NSCharacterSet whitespaceAndNewlineCharacterSet];
         NSString *username = [txtFieldUsername.text stringByTrimmingCharactersInSet:whiteNewChars];
         NSString *password = [txtFieldPassword.text stringByTrimmingCharactersInSet:whiteNewChars];
-        
+        NSLog(@"button log clicked");
         viewLoading = [_LolitaFunctions showLoadingViewWithText:@"登录中" inView:self.view];
         
         [AVUser logInWithUsernameInBackground:username password:password
@@ -104,8 +104,26 @@
                                                 
                                                 DSTabBarController *vc = [[DSTabBarController alloc] init];
                                                 // 切换控制器
-                                                UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                                                window.rootViewController = vc;
+
+                                                
+                                                AVUser *currentUser = [AVUser currentUser];
+                                                AVIMClient *imclient = [[AVIMClient alloc] init];
+                                                imclient.delegate = vc;
+                                                
+                                                NSLog(@"open avimclient!");
+                                                [imclient openWithClientId:[currentUser objectId] callback:^(BOOL succeeded , NSError *error){
+                                                    if (error){
+                                                        NSLog(@"聊天不可用");
+                                                    }else{
+                                                        ConversationStore *store = [ConversationStore sharedInstance];
+                                                        store.imClient = imclient;
+                                                        [store reviveFromLocal:currentUser];
+                                                        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                                                        window.rootViewController = vc;
+                                                    }
+                                                }];
+                                                
+                                                
                                                 
                                                 NSLog(@"登陆成功");
                                             }else{

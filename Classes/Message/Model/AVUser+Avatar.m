@@ -8,7 +8,7 @@
 
 #import "AVUser+Avatar.h"
 
-#define kAttrKey_AvatarFile @"avatarFile"
+#define kAttrKey_AvatarFile @"avatar"
 
 @implementation AVUser (Avatar)
 

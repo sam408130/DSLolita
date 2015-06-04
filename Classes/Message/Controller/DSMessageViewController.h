@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConversationStore.h"
 
-@interface DSMessageViewController : UITabBarController
+
+@interface DSMessageViewController : UIViewController
+
 
 @end

@@ -8,6 +8,7 @@
 
 #import "DSControllerTool.h"
 #import "DSTabBarController.h"
+#import "ConversationStore.h"
 //#import "DSNewfeatureViewController.h"
 
 @implementation DSControllerTool
@@ -25,6 +26,7 @@
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[versionKey];
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [UIApplication sharedApplication].statusBarHidden = NO;
 //    if ([currentVersion isEqualToString:lastVersion]){
 //        //当前是最新版本
 //        [UIApplication sharedApplication].statusBarHidden = NO;
@@ -37,9 +39,24 @@
 //        [defaults setObject:currentVersion forKey:versionKey];
 //        [defaults synchronize];
 //    }
+            DSTabBarController *vc = [[DSTabBarController alloc] init];
+            AVUser *currentUser = [AVUser currentUser];
+            AVIMClient *imclient = [[AVIMClient alloc] init];
+            imclient.delegate = vc;
     
-            [UIApplication sharedApplication].statusBarHidden = NO;
-            window.rootViewController = [[DSTabBarController alloc] init];
+            NSLog(@"open avimclient!");
+            [imclient openWithClientId:[currentUser objectId] callback:^(BOOL succeeded , NSError *error){
+            if (error){
+                NSLog(@"聊天不可用");
+            }else{
+            ConversationStore *store = [ConversationStore sharedInstance];
+            store.imClient = imclient;
+            [store reviveFromLocal:currentUser];
+            
+            window.rootViewController = vc;
+        }
+    }];
+
     
 }
 

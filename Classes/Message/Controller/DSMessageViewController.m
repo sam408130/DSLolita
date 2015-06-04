@@ -7,23 +7,19 @@
 //
 
 #import "DSMessageViewController.h"
+#import "ConversationStore.h"
+#import "ChatViewController.h"
+#import "ConversationUtils.h"
 
-@interface DSMessageViewController ()
+NSString * kConversationCellIdentifier = @"ConversationIdentifier";
+
+@interface DSMessageViewController () {
+    UITableView *_tableView;
+    NSMutableArray *_recentConversations;
+}
 
 @end
 
 @implementation DSMessageViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 @end

@@ -38,12 +38,13 @@ UUInputFunctionViewDelegate, FCMessageCellDelegate, ConversationOperationDelegat
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"ChatRoom";
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.title = self.conversation.name;
+    [self.view setBackgroundColor:DSGlobleTableViewBackgroundColor];
 
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 40) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.backgroundColor = DSGlobleTableViewBackgroundColor;
     _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_tableView setUserInteractionEnabled:YES];
