@@ -1,0 +1,18 @@
+/* 
+  JKImagePickerController.strings
+  JKImagePicker
+
+  Created by Jecky on 15/1/9.
+  Copyright (c) 2015年 Jecky. All rights reserved.
+*/
+
+"title" = "选择相册";
+
+"format_photo" = "%ld 张照片";
+"format_photos" = "%ld 张照片";
+"format_video" = "%ld 个视频";
+"format_videos" = "%ld 个视频";
+"format_photo_and_video" = "%ld 张照片、%ld 个视频";
+"format_photos_and_video" = "%ld 张照片、%ld 个视频";
+"format_photo_and_videos" = "%ld 张照片、%ld 个视频";
+"format_photos_and_videos" = "%ld 张照片、%ld 个视频";

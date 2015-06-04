@@ -1,0 +1,18 @@
+/* 
+  JKImagePickerController.strings
+  JKImagePicker
+
+  Created by Jecky on 15/1/9.
+  Copyright (c) 2015年 Jecky. All rights reserved.
+*/
+
+"title" = "Select Album";
+
+"format_photo" = "%ld Photo";
+"format_photos" = "%ld Photos";
+"format_video" = "%ld Video";
+"format_videos" = "%ld Videos";
+"format_photo_and_video" = "%ld Photo, %ld Video";
+"format_photos_and_video" = "%ld Photos, %ld Video";
+"format_photo_and_videos" = "%ld Photo, %ld Videos";
+"format_photos_and_videos" = "%ld Photos, %ld Videos";

@@ -1,0 +1,6 @@
+framework module AVOSCloudCrashReporting {
+  umbrella header "AVOSCloudCrashReporting.h"
+
+  export *
+  module * { export * }
+}

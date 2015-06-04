@@ -1,0 +1,132 @@
+//
+//  DSLolita-PrefixHeader.pch
+//  DSLolita
+//
+//  Created by 赛 丁 on 15/5/25.
+//  Copyright (c) 2015年 samDing. All rights reserved.
+//
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features onlly available in iOS SDK 5.0 and later."
+#endif
+
+
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIBarButtonItem+Extension.h"
+#import "UIImage+Extension.h"
+#import "UIView+Extension.h"
+#import "NSString+Extension.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "LolitaFunctions.h"
+#import "LolitaTextField.h"
+#import "SDWebImageManager.h"
+#import "SDImageCache.h"
+#import "MBProgressHUD+MJ.h"
+#import <AVOSCloudIM/AVOSCloudIM.h>
+
+
+
+#define _LolitaFunctions [LolitaFunctions sharedObject]
+
+
+//随机色
+#define DSRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+//颜色
+#define DSColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//公用颜色
+#define DSCommonColor [UIColor colorWithRed:254/255.0  green:129/255.0 blue:0 alpha:1.0]
+//导航栏标题字体大小
+#define DSNavigationFont [UIFont boldSystemFontOfSize:16]
+//导航栏标题按钮高度和边距
+#define DSNavigationItemOfTitleViewHeight 34
+#define DSNavigationItemMargin 10
+//首页导航popmenu距离顶部高度
+#define DSPopMenuMarginTop 10
+
+
+
+//是否为4inch
+#define DSFourInch ([UIScreen mainScreen].bounds.size.height >= 568.0)
+//是否为iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+//是否为iOS8及以上系统
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+//屏幕宽度
+#define DSScreenWidth [UIScreen mainScreen].bounds.size.width
+//导航栏高度
+#define DSNavigationHeight CGRectGetMaxY([self.navigationController navigationBar].frame)
+//设置一个全局tableview的背景颜色
+#define DSGlobleTableViewBackgroundColor DSColor(239,239,239)
+
+
+
+
+//日至输出
+#ifdef DEBUG //调试状态，打开LOG功能
+#define DSLog(...) NSLog(__VA_ARGS__)
+#else //发布状态，关闭LOG功能
+#define DSLog(...)
+#endif
+
+
+//LeanCloud appkey
+//#define ApplicationID @"7wqhwi47uvefw0l3st539py7vmkmfqk4rrocix1dxpqsf325"
+//#define ClientKey @"cgg1atp9tvo2ahxzvcnvf1j3e0h808f2tcguoerlorr89whz"
+
+
+//// testCloud appkey
+#define ApplicationID @"0y463z4tk9wk4zbtkq4qn21kshdm9zetj8mkouiqkaoovn4e"
+#define ClientKey @"j9de7xoza1gbvkbp0b6qudz10s9lkwsxqll2nvwrjfty3a58"
+
+
+//首页Cell相关信息
+#define DSStatusToolbarWidth 35
+#define DSStatusCellMargin 5
+#define DSStatusCellInset 8
+#define DSStatusOriginalNameFont [UIFont systemFontOfSize:17]
+#define DSStatusOriginalTimeFont [UIFont systemFontOfSize:10]
+#define DSStatusOriginalSourceFont DSStatusOriginalTimeFont
+#define DSStatusRetweetedNameFont [UIFont systemFontOfSize:18]
+#define DSStatusOriginalDidMoreNotication @"StatusOriginalDidMoreNotication"
+#define WEAKSELF  typeof(self) __weak weakSelf=self;
+
+
+// 富文本字体
+#define DSStatusRichTextFont [UIFont systemFontOfSize:18]
+// 转发微博正文字体
+#define DSStatusHighTextColor SWColor(93, 123, 169)
+// 表情的最大行数
+#define DSEmotionMaxRows 3
+// 表情的最大列数
+#define DSEmotionMaxCols 7
+// 每页最多显示多少个表情
+#define DSEmotionMaxCountPerPage (DSEmotionMaxRows * DSEmotionMaxCols - 1)
+// 表情选择通知
+#define DSEmotionDidSelectedNotification @"EmotionDidSelectedNotification"
+// 表情选择是emotion key
+#define DSSelectedEmotion @"SelectEmotionKey"
+#define DSEmotionDidDeletedNotification @"EmotionDidDeletedNotification"
+// 富文本链接属性标志
+#define DSLinkAttr @"DSLinkAttr"
+// 富文本链接通知
+#define DSLinkDidSelectedNotification @"DSLinkDidSelectedNotification"
+// 转发微博的字体颜色
+#define DSStatusRetweededTextColor DSColor(111, 111, 111)
+// 普通文本通知
+#define DSStatusNormalTextDidSelectedNotification @"DSStatusNormalTextDidSelectedNotification"
+
+
+
+
+
+#endif

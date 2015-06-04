@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>emoticon_group_name</key>
+		<string>默认</string>
+		<key>emoticon_group_identifier</key>
+		<string>com.sina.default</string>
+		<key>emoticon_group_type</key>
+		<string>3</string>
+		<key>emoticon_group_path</key>
+		<string>default</string>
+	</dict>
+	<dict>
+		<key>emoticon_group_name</key>
+		<string>Emoji</string>
+		<key>emoticon_group_identifier</key>
+		<string>com.apple.emoji</string>
+		<key>emoticon_group_type</key>
+		<string>3</string>
+		<key>emoticon_group_path</key>
+		<string>emoji</string>
+	</dict>
+	<dict>
+		<key>emoticon_group_name</key>
+		<string>浪小花</string>
+		<key>emoticon_group_identifier</key>
+		<string>com.sina.lagnxiaohua</string>
+		<key>emoticon_group_type</key>
+		<string>3</string>
+		<key>emoticon_group_path</key>
+		<string>lxh</string>
+	</dict>
+</array>
+</plist>
