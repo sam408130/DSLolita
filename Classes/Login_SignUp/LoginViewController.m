@@ -104,25 +104,10 @@
                                                 
                                                 DSTabBarController *vc = [[DSTabBarController alloc] init];
                                                 // 切换控制器
-
+                                                UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                                                window.rootViewController = vc;
                                                 
-                                                AVUser *currentUser = [AVUser currentUser];
-                                                AVIMClient *imclient = [[AVIMClient alloc] init];
-                                                imclient.delegate = vc;
-                                                
-                                                NSLog(@"open avimclient!");
-                                                [imclient openWithClientId:[currentUser objectId] callback:^(BOOL succeeded , NSError *error){
-                                                    if (error){
-                                                        NSLog(@"聊天不可用");
-                                                    }else{
-                                                        ConversationStore *store = [ConversationStore sharedInstance];
-                                                        store.imClient = imclient;
-                                                        [store reviveFromLocal:currentUser];
-                                                        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                                                        window.rootViewController = vc;
-                                                    }
-                                                }];
-                                                
+                                                                        
                                                 
                                                 
                                                 NSLog(@"登陆成功");

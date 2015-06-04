@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DSCommentViewController : UITableViewController
+@interface DSCommentViewController :UITableViewController
 
 @property (nonatomic ,strong) NSArray *comments;
 @property (nonatomic , strong) AVObject *object;

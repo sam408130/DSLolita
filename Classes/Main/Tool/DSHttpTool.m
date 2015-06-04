@@ -17,6 +17,7 @@
 #import "NSDate+Estension.h"
 #import "JKAssets.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "DSMessageData.h"
 
 
 @implementation DSHttpTool
@@ -357,5 +358,56 @@
     
     
 }
+
+
+- (NSArray *)showMessageDataFromObjects:(NSArray *)objects {
+    
+    NSMutableArray *box = [NSMutableArray array];
+    for (AVObject *object in objects){
+        
+        DSMessageData *localData = [[DSMessageData alloc] init];
+        NSArray *members = [object objectForKey:@"m"];
+        NSString *otherId = @"";
+        for (NSString *idstr in members) {
+            
+            if (![idstr isEqual:[AVUser currentUser].objectId]){
+                otherId = idstr;
+            }
+        }
+        
+        AVUser *otherUser = (AVUser *)[[AVUser query] getObjectWithId:otherId];
+        localData.username = otherUser.username;
+        localData.avatarUrl = ((AVFile *)[otherUser objectForKey:@"avatar"]).url;
+
+        NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+        fmt.dateFormat = @"EEE MMM dd HH24:mm:ss Z yyyy";
+        NSDate *createDate = object.updatedAt;
+        if (createDate.isThisYear) {
+            if (createDate.isToday) { // 今天
+                NSDateComponents *cmps = [createDate deltaWithNow];
+                if (cmps.hour >= 1) { // 至少是1小时前发的
+                    localData.time =  [NSString stringWithFormat:@"%ld小时前", (long)cmps.hour];
+                } else if (cmps.minute >= 1) { // 1~59分钟之前发的
+                    localData.time = [NSString stringWithFormat:@"%ld分钟前", (long)cmps.minute];
+                } else { // 1分钟内发的
+                    localData.time = @"刚刚";
+                }
+            } else if (createDate.isYesterday) { // 昨天
+                fmt.dateFormat = @"昨天 HH:mm";
+                localData.time = [fmt stringFromDate:createDate];
+            } else { // 至少是前天
+                fmt.dateFormat = @"MM-dd HH:mm";
+                localData.time = [fmt stringFromDate:createDate];
+            }
+        } else { // 非今年
+            fmt.dateFormat = @"yyyy-MM-dd";
+            localData.time = [fmt stringFromDate:createDate];
+        }
+        
+        
+
+        
+}
+
 
 @end

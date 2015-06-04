@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ConversationStore.h"
+#import "DSCommonTableViewController.h"
 
+@interface DSMessageViewController : UITableViewController
 
-@interface DSMessageViewController : UIViewController
-
+@property (nonatomic , strong) NSMutableArray *recentConversations;
 
 @end

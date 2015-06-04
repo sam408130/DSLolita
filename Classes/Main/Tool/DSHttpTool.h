@@ -35,6 +35,8 @@
 - (void)digOrCancelDigOfStatus:(DSStatus *)status sender:(UIButton *)sender block:(AVBooleanResultBlock)block;
 
 -(DSHomeStatus *)showHomestatusFromAVObjects:(NSArray *)objects;
+
 - (NSArray *)showCommentFromAVObject:(NSArray *)object;
 
+- (NSArray *)showMessageDataFromObjects:(NSArray *)objects;
 @end

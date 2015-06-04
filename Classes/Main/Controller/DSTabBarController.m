@@ -16,7 +16,7 @@
 #import "DSTabBar.h"
 
 
-@interface DSTabBarController () <DSTabBarDelegate>
+@interface DSTabBarController () <DSTabBarDelegate,AVIMClientDelegate>
 
 @property (nonatomic , weak)DSHomeViewController *homeViewController;
 @property (nonatomic , weak)DSMessageViewController *messageViewController;
@@ -40,6 +40,9 @@
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(getUnreadCount) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
+    // 添加私聊
+    [self setupConversations];
+    
 }
 
 
@@ -50,7 +53,23 @@
 }
 
 
-
+- (void)setupConversations{
+    
+    AVUser *currentUser = [AVUser currentUser];
+    AVIMClient *imclient = [[AVIMClient alloc] init];
+    imclient.delegate = self;
+    NSLog(@"open AVIMClient");
+    [imclient openWithClientId:currentUser.objectId callback:^(BOOL succeed , NSError *error){
+        if (error){
+            NSLog(@"聊天不可用");
+        }else{
+            ConversationStore *store = [ConversationStore sharedInstance];
+            store.imClient = imclient;
+            [store reviveFromLocal:currentUser];
+        }
+        
+    }];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -156,6 +175,125 @@
     compose.source = @"compose";
     DSNavigationController *nav = [[DSNavigationController alloc] initWithRootViewController:compose];
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+
+#pragma AVIMClientDelegate
+/*!
+ 当前聊天状态被暂停，常见于网络断开时触发。
+ */
+- (void)imClientPaused:(AVIMClient *)imClient {
+    ConversationStore *store = [ConversationStore sharedInstance];
+    store.networkAvailable = NO;
+}
+
+/*!
+ 当前聊天状态开始恢复，常见于网络断开后开始重新连接。
+ */
+- (void)imClientResuming:(AVIMClient *)imClient {
+}
+/*!
+ 当前聊天状态已经恢复，常见于网络断开后重新连接上。
+ */
+- (void)imClientResumed:(AVIMClient *)imClient {
+    ConversationStore *store = [ConversationStore sharedInstance];
+    store.networkAvailable = YES;
+}
+
+/*!
+ 接收到新的普通消息。
+ @param conversation － 所属对话
+ @param message - 具体的消息
+ @return None.
+ */
+- (void)conversation:(AVIMConversation *)conversation didReceiveCommonMessage:(AVIMMessage *)message {
+    ConversationStore *store = [ConversationStore sharedInstance];
+    [store newMessageArrived:message conversation:conversation];
+}
+
+/*!
+ 接收到新的富媒体消息。
+ @param conversation － 所属对话
+ @param message - 具体的消息
+ @return None.
+ */
+- (void)conversation:(AVIMConversation *)conversation didReceiveTypedMessage:(AVIMTypedMessage *)message {
+    ConversationStore *store = [ConversationStore sharedInstance];
+    [store newMessageArrived:message conversation:conversation];
+}
+
+/*!
+ 消息已投递给对方。
+ @param conversation － 所属对话
+ @param message - 具体的消息
+ @return None.
+ */
+- (void)conversation:(AVIMConversation *)conversation messageDelivered:(AVIMMessage *)message {
+    ConversationStore *store = [ConversationStore sharedInstance];
+    [store messageDelivered:message conversation:conversation];
+}
+
+/*!
+ 对话中有新成员加入的通知。
+ @param conversation － 所属对话
+ @param clientIds - 加入的新成员列表
+ @param clientId - 邀请者的 id
+ @return None.
+ */
+- (void)conversation:(AVIMConversation *)conversation membersAdded:(NSArray *)clientIds byClientId:(NSString *)clientId {
+    if ([clientId compare:[[AVUser currentUser] objectId]] == NSOrderedSame) {
+        // A 邀请 B 加入对话，LeanCloud 云端也会给 A 发送成员增加通知。这时候 clientId 等于 A 的 userId。
+    }
+    
+    ConversationStore *store = [ConversationStore sharedInstance];
+    [store newConversationEvent:EventMemberAdd conversation:conversation from:clientId to:clientIds];
+}
+
+/*!
+ 对话中有成员离开的通知。
+ @param conversation － 所属对话
+ @param clientIds - 离开的成员列表
+ @param clientId - 操作者的 id
+ @return None.
+ */
+- (void)conversation:(AVIMConversation *)conversation membersRemoved:(NSArray *)clientIds byClientId:(NSString *)clientId {
+    if ([clientId compare:[[AVUser currentUser] objectId]] == NSOrderedSame) {
+        // A 将 B 踢出对话，LeanCloud 云端也会给 A 发送通知。这时候 clientId 等于 A 的 userId。
+    }
+    
+    ConversationStore *store = [ConversationStore sharedInstance];
+    [store newConversationEvent:EventMemberRemove conversation:conversation from:clientId to:clientIds];
+}
+
+/*!
+ 被邀请加入对话的通知。
+ @param conversation － 所属对话
+ @param clientId - 邀请者的 id
+ @return None.
+ */
+- (void)conversation:(AVIMConversation *)conversation invitedByClientId:(NSString *)clientId {
+    if ([clientId compare:[[AVUser currentUser] objectId]] == NSOrderedSame) {
+        // A 邀请 B 加入对话，LeanCloud 云端也会给 A 发送邀请通知。这时候 clientId 等于 A 的 userId。
+        // 这种消息无需处理。
+        return;
+    }
+    ConversationStore *store = [ConversationStore sharedInstance];
+    [store newConversationEvent:EventInvited conversation:conversation from:clientId to:nil];
+}
+
+/*!
+ 从对话中被移除的通知。
+ @param conversation － 所属对话
+ @param clientId - 操作者的 id
+ @return None.
+ */
+- (void)conversation:(AVIMConversation *)conversation kickedByClientId:(NSString *)clientId {
+    if ([clientId compare:[[AVUser currentUser] objectId]] == NSOrderedSame) {
+        // 自己退出的场合，忽略这一事件
+        return;
+    }
+    ConversationStore *store = [ConversationStore sharedInstance];
+    [store newConversationEvent:EventKicked conversation:conversation from:clientId to:nil];
 }
 
 

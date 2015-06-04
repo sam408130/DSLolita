@@ -128,9 +128,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkDidSelected:) name:DSLinkDidSelectedNotification object:nil];
     // 7. 普通文本链接
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusNormalTextDidSelected:) name:DSStatusNormalTextDidSelectedNotification object:nil];
-    
 
 }
+
+
+
 
 
 //跳转到正文，可以是评论界面

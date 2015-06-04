@@ -51,9 +51,9 @@
     
     [self setupNavigationItem];
     
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     self.tableView.backgroundColor = DSGlobleTableViewBackgroundColor;
-    
+
     
 }
 
