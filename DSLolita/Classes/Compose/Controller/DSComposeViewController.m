@@ -157,9 +157,9 @@
                 [weakSelf runInMainQueue:^{
                     [weakSelf hideProgress];
                     if(error==nil){
-                
+                        
                         NSLog(@"成功了");
-                        //[ refresh];
+                        [_homeVc setupRefresh];
                         //[weakSelf dismiss];
                     }
                 }];

@@ -50,6 +50,13 @@
     return _statusesFrame;
 }
 
+- (NSMutableArray *)loadedObjects{
+    if (_loadedObjects == nil){
+        _loadedObjects = [NSMutableArray array];
+    }
+    return _loadedObjects;
+}
+
 - (NSMutableArray *)AVObjects {
     
     if (_AVObjects == nil){
@@ -324,12 +331,12 @@
     
     
     [self.HttpToolManager findMoreStatusWithBlock:self.loadedObjects block:^(NSArray *objects , NSError *error){
-        
+  
         if (!error){
             self.homeStatus = [self.HttpToolManager showHomestatusFromAVObjects:objects];
 
             NSArray *newFrames = [self statusFramesWithStatuses:self.homeStatus.statuses];
-    
+            [self.footer endRefreshing];
             // 将新数据插入到旧数据的最后面
             [self.statusesFrame addObjectsFromArray:newFrames];
             [self.loadedObjects addObjectsFromArray:self.homeStatus.loadedObjectIDs];
@@ -428,6 +435,7 @@
     
     
 }
+
 
 - (void)didMessageButtonClicked:(UIButton *)button indexPath:(NSIndexPath *)indexpath {
     

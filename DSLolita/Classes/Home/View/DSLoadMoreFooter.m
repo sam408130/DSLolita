@@ -34,7 +34,7 @@
 
 -(void)endRefreshing {
     
-    self.statusLabel.text = @"上拉可以加载更多数据";
+    self.statusLabel.text = @"没有更多数据了";
     [self.loadingView stopAnimating];
     self.refreshing = NO;
 }

@@ -120,7 +120,7 @@
     [query includeKey:@"comments.commentUser"];
     [query includeKey:@"comments.toUser"];
     [query setCachePolicy:kAVCachePolicyNetworkElseCache];
-     //query.limit = 30;
+     query.limit = 30;
     [query findObjectsInBackgroundWithBlock:block];
 }
 
@@ -128,7 +128,6 @@
 - (void)findMoreStatusWithBlock:(NSArray *)loadedStatusIDs block:(AVArrayResultBlock)block {
     
     AVQuery *query = [DSAVStatus query];
-    
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"albumPhotos"];
     [query includeKey:@"creator"];
@@ -136,7 +135,7 @@
     [query includeKey:@"comments.toUser"];
     [query whereKey:@"objectId" notContainedIn:loadedStatusIDs];
     [query setCachePolicy:kAVCachePolicyNetworkElseCache];
-    //query.limit = 30;
+    query.limit = 30;
     [query findObjectsInBackgroundWithBlock:block];
 
 }

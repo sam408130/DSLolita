@@ -170,6 +170,7 @@
     // 弹出发微博控制器
     DSComposeViewController *compose = [[DSComposeViewController alloc] init];
     compose.source = @"compose";
+    compose.homeVc = self.homeViewController;
     DSNavigationController *nav = [[DSNavigationController alloc] initWithRootViewController:compose];
     [self presentViewController:nav animated:YES completion:nil];
 }
