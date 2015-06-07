@@ -42,6 +42,8 @@
     if (self) {
         
         self.userInteractionEnabled = YES;
+        self.image = [UIImage resizableImageWithName:@"timeline_card_top_background"];
+        self.highlightedImage = [UIImage resizableImageWithName:@"timeline_card_top_background_highlighted"];
         
         // 1.昵称
         UILabel *nameLabel = [[UILabel alloc] init];

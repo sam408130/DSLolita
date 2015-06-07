@@ -55,6 +55,7 @@ static NSString *cellIdentifier = @"ContactCell";
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.backgroundColor = DSGlobleTableViewBackgroundColor;
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
     [self.tableView addSubview:self.refreshControl];

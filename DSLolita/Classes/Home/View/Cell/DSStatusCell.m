@@ -44,6 +44,8 @@
         [self setupToolbar];
         //cell设置
         self.backgroundColor = [UIColor clearColor];
+        self.opaque = YES;
+        //self.selectionStyle = UITableViewCellSeparatorStyleNone;
     }
     
     return self;
@@ -106,6 +108,7 @@
     
     
 }
+
 
 
 

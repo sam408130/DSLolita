@@ -50,6 +50,7 @@
     // 1.下载图片
     [self sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
     
+    
     // 2.添加gif图标显示
     NSString *extension = photo.pathExtension.lowercaseString;
     self.gifView.hidden = ![extension isEqualToString:@"gif"];

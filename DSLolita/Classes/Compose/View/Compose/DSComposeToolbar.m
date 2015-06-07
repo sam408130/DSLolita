@@ -30,7 +30,7 @@
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithName:@"compose_toolbar_background"]];
         
         // 添加所有的子控件
-        [self addButtonWithIcon:@"compose_camerabutton_background" highIcon:@"compose_camerabutton_background_highlighted" tag:DSComposeToolbarButtonTypeCamera];
+        //[self addButtonWithIcon:@"compose_camerabutton_background" highIcon:@"compose_camerabutton_background_highlighted" tag:DSComposeToolbarButtonTypeCamera];
         [self addButtonWithIcon:@"compose_toolbar_picture" highIcon:@"compose_toolbar_picture_highlighted" tag:DSComposeToolbarButtonTypePicture];
         [self addButtonWithIcon:@"compose_mentionbutton_background" highIcon:@"compose_mentionbutton_background_highlighted" tag:DSComposeToolbarButtonTypeMention];
         [self addButtonWithIcon:@"compose_trendbutton_background" highIcon:@"compose_trendbutton_background_highlighted" tag:DSComposeToolbarButtonTypeTrend];

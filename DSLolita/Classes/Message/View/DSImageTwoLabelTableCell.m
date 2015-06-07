@@ -14,9 +14,13 @@
 -(instancetype)init{
     self=[self init];
     if(self){
+//        self.image = [UIImage resizableImageWithName:@"timeline_card_top_background"];
+//        self.highlighted = [UIImage resizableImageWithName:@"timeline_card_top_background_highlighted"];
     }
     return self;
 }
+
+
 
 -(void)layoutSubviews{
     [super layoutSubviews];

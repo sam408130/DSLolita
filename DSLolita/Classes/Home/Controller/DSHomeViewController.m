@@ -386,6 +386,7 @@
     
     DSStatusCell *cell = [DSStatusCell cellWithTableView:tableView];
     cell.statusFrame = self.statusesFrame[indexPath.row];
+    NSLog(@"number %d cell loaded",indexPath.row);
     cell.delegate = self;
     cell.indexpath = indexPath;
     return cell;
@@ -395,6 +396,7 @@
     
     DSStatusFrame *statusFrame = self.statusesFrame[indexPath.row];
     return statusFrame.cellHeight;
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

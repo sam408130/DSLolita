@@ -614,6 +614,7 @@ static NSString *kJKAssetsFooterViewIdentifier = @"kJKAssetsFooterViewIdentifier
         pickerController.delegate = self;
         pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:pickerController animated:YES completion:^{
+            
         }];
     }
 }

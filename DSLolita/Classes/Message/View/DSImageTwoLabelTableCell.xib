@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LAi-XS-DbX">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeline_card_top_background" highlightedImage="timeline_card_bottom_background_highlighted" translatesAutoresizingMaskIntoConstraints="NO" id="LAi-XS-DbX">
                         <rect key="frame" x="18" y="8" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="3lI-lX-DtT"/>
@@ -67,4 +67,8 @@
             <point key="canvasLocation" x="564" y="381"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="timeline_card_bottom_background_highlighted" width="22" height="36"/>
+        <image name="timeline_card_top_background" width="28" height="28"/>
+    </resources>
 </document>
