@@ -15,4 +15,3 @@ lolita objective-c 版本
   * MBProgressHUD
   * SDWebImage
   * MessageDisplayKit
-  * 
