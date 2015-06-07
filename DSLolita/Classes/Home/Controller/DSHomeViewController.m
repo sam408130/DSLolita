@@ -333,9 +333,9 @@
     [self.HttpToolManager findMoreStatusWithBlock:self.loadedObjects block:^(NSArray *objects , NSError *error){
   
         if (!error){
-            self.homeStatus = [self.HttpToolManager showHomestatusFromAVObjects:objects];
-
-            NSArray *newFrames = [self statusFramesWithStatuses:self.homeStatus.statuses];
+            DSHomeStatus *tempHomeStatus = [self.HttpToolManager showHomestatusFromAVObjects:objects];
+            [self.homeStatus.statuses addObjectsFromArray:tempHomeStatus.statuses];
+            NSArray *newFrames = [self statusFramesWithStatuses:tempHomeStatus.statuses];
             [self.footer endRefreshing];
             // 将新数据插入到旧数据的最后面
             [self.statusesFrame addObjectsFromArray:newFrames];

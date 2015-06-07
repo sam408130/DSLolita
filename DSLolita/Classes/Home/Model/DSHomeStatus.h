@@ -10,7 +10,7 @@
 
 @interface DSHomeStatus : NSObject
 
-@property (nonatomic , strong) NSArray *statuses;
+@property (nonatomic , strong) NSMutableArray *statuses;
 
 @property (nonatomic , assign) int total_number;
 
