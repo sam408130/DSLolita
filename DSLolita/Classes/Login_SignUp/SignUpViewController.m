@@ -252,14 +252,14 @@
         user[@"phone"] = phone;
         
         
-        viewLoading = [_LolitaFunctions showLoadingViewWithText:@"正在注册" inView:self.view];
+        //viewLoading = [_LolitaFunctions showLoadingViewWithText:@"正在注册" inView:self.view];
         
         [user signUpInBackgroundWithBlock:^(BOOL succeeded , NSError *error) {
             if (!error){
                 [self checkIfToUploadImage];
             }
             else{
-                [_LolitaFunctions hideLoadingView:viewLoading];
+                //[_LolitaFunctions hideLoadingView:viewLoading];
                 [[[UIAlertView alloc] initWithTitle:@"注册失败"
                                            message:[error userInfo][@"error"]
                                           delegate:nil
