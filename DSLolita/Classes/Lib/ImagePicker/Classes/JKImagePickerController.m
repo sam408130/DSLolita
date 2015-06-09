@@ -1,3 +1,5 @@
+
+
 //
 //  JKImagePickerController.m
 //  JKImagePicker
@@ -554,10 +556,13 @@ static NSString *kJKAssetsFooterViewIdentifier = @"kJKAssetsFooterViewIdentifier
 {
     ALAsset *asset = self.assetsArray[index];
     NSURL *assetURL = [asset valueForProperty:ALAssetPropertyAssetURL];
-    CGImageRef thumbnailImageRef = [asset thumbnail];
+//    CGImageRef thumbnailImageRef = [asset thumbnail];
+    //CGImageRef realmimage = [asset defaultRepresentation];
     UIImage *image;
-    if (thumbnailImageRef) {
-        image = [UIImage imageWithCGImage:thumbnailImageRef];
+//    if (thumbnailImageRef) {
+//        image = [UIImage imageWithCGImage:thumbnailImageRef];
+    if (assetURL){
+        image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
     } else {
        image = [UIImage imageNamed:@"assets_placeholder_picture"];
     }

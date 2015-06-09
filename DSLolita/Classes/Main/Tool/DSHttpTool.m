@@ -80,7 +80,7 @@
     for(UIImage* photo in photos){
 
         
-        AVFile* photoFile=[AVFile fileWithData:UIImageJPEGRepresentation(photo, 1)];
+        AVFile* photoFile=[AVFile fileWithData:UIImagePNGRepresentation(photo)];
         [photoFile save:&theError];
         if(theError==nil){
             [photoFiles addObject:photoFile];

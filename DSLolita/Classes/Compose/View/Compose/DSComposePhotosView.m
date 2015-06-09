@@ -91,11 +91,12 @@ static NSString *kPhotoCellIdentifier = @"kPhotoCellIdentifier";
             
             if (self.assetsArray.count > 0){
                 [self.assetsArray removeObjectAtIndex:deletedPhoto];
-                [UIView animateWithDuration:0.6 animations:^{
+                [UIView animateWithDuration:1 animations:^{
                     
-                    currentCell.frame = CGRectMake(currentCell.frame.origin.x, currentCell.frame.origin.y + 50, 0, 0);
+                    currentCell.frame = CGRectMake(currentCell.frame.origin.x, currentCell.frame.origin.y + 100, 0, 0);
+                     [currentCell removeFromSuperview];
                 }completion:^(BOOL finished) {
-                    [currentCell removeFromSuperview];
+                   
                 }];
 
             }
