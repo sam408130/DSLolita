@@ -49,7 +49,7 @@
     if (self) {
         
         self.userInteractionEnabled = YES;
-        
+        self.opaque = YES;
         // 1.昵称
         UILabel *nameLabel = [[UILabel alloc] init];
         nameLabel.font = DSStatusOriginalNameFont;

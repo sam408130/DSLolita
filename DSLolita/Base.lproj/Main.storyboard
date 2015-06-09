@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="138" id="iUe-Xe-HT4"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jje-iZ-Dhn" customClass="LolitaTextField">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jje-iZ-Dhn" customClass="LolitaTextField">
                                 <rect key="frame" x="175" y="246" width="250" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="BPv-3c-w3o"/>
@@ -35,7 +35,7 @@
                                     <outlet property="delegate" destination="zND-ad-Cnk" id="QH7-tM-ihf"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0f-2j-AVu" customClass="LolitaTextField">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0f-2j-AVu" customClass="LolitaTextField">
                                 <rect key="frame" x="175" y="303" width="250" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="S59-KU-Nwl"/>
@@ -54,7 +54,7 @@
                                     <constraint firstAttribute="height" constant="40" id="xfp-V1-eEl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -69,7 +69,7 @@
                                     <constraint firstAttribute="width" constant="150" id="Zx0-IH-bXt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Forgot Password?">
+                                <state key="normal" title="忘记密码？">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -84,7 +84,7 @@
                                     <constraint firstAttribute="width" constant="250" id="hiL-Mf-mOB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Sign Up">
+                                <state key="normal" title="注册">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -148,7 +148,7 @@
                                     <constraint firstAttribute="height" constant="100" id="cym-11-qhw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                <state key="normal" title="Choose Photo">
+                                <state key="normal" title="选择一张照片">
                                     <color key="titleColor" red="0.27058823529999998" green="0.76862745099999996" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -156,19 +156,7 @@
                                     <action selector="buttonChoosePhotoTapped:" destination="R2h-5u-5bk" eventType="touchUpInside" id="Cg9-pi-iFh"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-zq-jIH" customClass="LolitaTextField">
-                                <rect key="frame" x="175" y="236" width="250" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="24s-qy-0i5"/>
-                                    <constraint firstAttribute="width" constant="250" id="rWZ-Fn-Uzh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
-                                <connections>
-                                    <outlet property="delegate" destination="R2h-5u-5bk" id="m00-JL-DdQ"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BXe-Fa-Fqh" customClass="LolitaTextField">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BXe-Fa-Fqh" customClass="LolitaTextField">
                                 <rect key="frame" x="175" y="287" width="250" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="AaG-8C-pTi"/>
@@ -180,7 +168,7 @@
                                     <outlet property="delegate" destination="R2h-5u-5bk" id="ohB-fE-UHB"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wT9-FR-4I3" customClass="LolitaTextField">
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wT9-FR-4I3" customClass="LolitaTextField">
                                 <rect key="frame" x="175" y="338" width="250" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="9Ay-wd-zi7"/>
@@ -192,7 +180,7 @@
                                     <outlet property="delegate" destination="R2h-5u-5bk" id="43L-Aj-dbF"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5l-dK-r2s" customClass="LolitaTextField">
+                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5l-dK-r2s" customClass="LolitaTextField">
                                 <rect key="frame" x="175" y="389" width="250" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="3tK-Be-LKh"/>
@@ -211,7 +199,7 @@
                                     <constraint firstAttribute="height" constant="40" id="GwR-dm-2Kk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Sign Up">
+                                <state key="normal" title="注册">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -230,6 +218,18 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-zq-jIH" customClass="LolitaTextField">
+                                <rect key="frame" x="175" y="236" width="250" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="24s-qy-0i5"/>
+                                    <constraint firstAttribute="width" constant="250" id="rWZ-Fn-Uzh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="R2h-5u-5bk" id="m00-JL-DdQ"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

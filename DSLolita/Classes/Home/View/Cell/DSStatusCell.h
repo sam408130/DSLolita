@@ -18,6 +18,7 @@
 - (void)didCommentButtonClicked:(UIButton *)button indexPath:(NSIndexPath *)indexpath;
 - (void)didLikeButtonClicked:(UIButton *)button indexPath:(NSIndexPath *)indexpath;
 - (void)didMessageButtonClicked:(UIButton *)button indexPath:(NSIndexPath *)indexpath;
+- (void)didShareButtonClicked:(UIButton *)button indexPath:(NSIndexPath *)indexpath;
 
 @end
 

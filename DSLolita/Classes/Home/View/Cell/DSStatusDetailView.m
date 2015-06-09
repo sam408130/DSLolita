@@ -30,6 +30,7 @@
     if (self) { // 初始化子控件
         self.image = [UIImage resizableImageWithName:@"timeline_card_top_background"];
         self.highlightedImage = [UIImage resizableImageWithName:@"timeline_card_top_background_highlighted"];
+        self.opaque = YES;
         // 1.添加原创微博
         [self setupOriginalView];
         

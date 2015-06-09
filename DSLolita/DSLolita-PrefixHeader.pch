@@ -34,7 +34,7 @@
 #import "MBProgressHUD+MJ.h"
 #import <AVOSCloudIM/AVOSCloudIM.h>
 #import "DSMessageCommon.h"
-
+#import "OpenShareHeader.h"
 
 #define _LolitaFunctions [LolitaFunctions sharedObject]
 

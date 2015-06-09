@@ -29,7 +29,7 @@
         self.userInteractionEnabled = YES;
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
-        
+        self.opaque = YES;
         //添加一个gif图标
         UIImage *image = [UIImage imageWithName:@"timeline_image_gif"];
         UIImageView *gifView = [[UIImageView alloc] initWithImage:image];

@@ -29,6 +29,7 @@
 
 @property (nonatomic , strong) NSMutableArray *statusesFrame;
 @property (nonatomic , strong) NSMutableArray *loadedObjects;
+@property (nonatomic , strong) NSMutableArray *needLoadArr;
 @property (nonatomic , weak) DSLoadMoreFooter *footer;
 @property (nonatomic , weak) DSTitleButton *titleButton;
 @property (nonatomic , strong) DSHttpTool *HttpToolManager;
@@ -48,6 +49,15 @@
     }
     
     return _statusesFrame;
+}
+
+- (NSMutableArray *)needLoadArr {
+    
+    if (_needLoadArr == nil) {
+        _needLoadArr = [NSMutableArray array];
+    }
+    
+    return _needLoadArr;
 }
 
 - (NSMutableArray *)loadedObjects{
@@ -224,6 +234,12 @@
         
         NSLog(@"%d loaded" , (int)objects.count);
         if (!error){
+            int currentFeeds = 0;
+            
+            if (self.homeStatus.statuses){
+                
+                currentFeeds = (int)self.homeStatus.statuses.count;
+            }
             
             self.homeStatus = [weakSelf.HttpToolManager showHomestatusFromAVObjects:objects];
 
@@ -248,7 +264,8 @@
             [refreshControl endRefreshing];
             
             //提示用户刷新的Feed个数
-            [weakSelf showNewStatusesCount:(int)newFrames.count];
+            int newF = (int)newFrames.count - currentFeeds;
+            [weakSelf showNewStatusesCount:newF];
             
             // 首页图标数据清零
             [UIApplication sharedApplication].applicationIconBadgeNumber -= weakSelf.tabBarItem.badgeValue.intValue;
@@ -339,7 +356,7 @@
             [self.footer endRefreshing];
             // 将新数据插入到旧数据的最后面
             [self.statusesFrame addObjectsFromArray:newFrames];
-            [self.loadedObjects addObjectsFromArray:self.homeStatus.loadedObjectIDs];
+            [self.loadedObjects addObjectsFromArray:tempHomeStatus.loadedObjectIDs];
             [self.AVObjects addObjectsFromArray:objects];
             NSLog(@"增加数据中");
             // 重新刷新表格
@@ -372,6 +389,8 @@
     [menu showInRect:CGRectMake((self.view.frame.size.width-217)/2.0,CGRectGetMaxY([self.navigationController navigationBar].frame)-DSPopMenuMarginTop, 217, 400)];
     
 }
+
+
 
 
 
@@ -447,6 +466,16 @@
 }
 
 
+- (void)didShareButtonClicked:(UIButton *)button indexPath:(NSIndexPath *)indexpath {
+    
+    OSMessage *msg = [[OSMessage alloc] init];
+    msg.title = @"hellow msg.title";
+    [OpenShare shareToWeixinTimeline:msg Success:^(OSMessage *message){
+        NSLog(@"微信分享到朋友圈成功:\n%@",message);
+    }Fail:^(OSMessage *message, NSError *error){
+        NSLog(@"微信分享到朋友圈失败:\n%@\%@n",error,message);
+    }];
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
@@ -468,6 +497,42 @@
         });
     }
 }
+
+
+
+
+
+
+//按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    NSIndexPath *ip = [self.tableView indexPathForRowAtPoint:CGPointMake(0, targetContentOffset->y)];
+    NSIndexPath *cip = [[self.tableView indexPathsForVisibleRows] firstObject];
+    NSInteger skipCount = 8;
+    if (labs(cip.row-ip.row)>skipCount) {
+        NSArray *temp = [self.tableView indexPathsForRowsInRect:CGRectMake(0, targetContentOffset->y, self.tableView.width, self.tableView.height)];
+        NSMutableArray *arr = [NSMutableArray arrayWithArray:temp];
+        if (velocity.y<0) {
+            NSIndexPath *indexPath = [temp lastObject];
+            if (indexPath.row+3<self.homeStatus.statuses.count) {
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+2 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+3 inSection:0]];
+            }
+        } else {
+            NSIndexPath *indexPath = [temp firstObject];
+            if (indexPath.row>3) {
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-3 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-2 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:0]];
+            }
+        }
+        [_needLoadArr addObjectsFromArray:arr];
+    }
+}
+
+
+
+
 
 
 - (void)pop

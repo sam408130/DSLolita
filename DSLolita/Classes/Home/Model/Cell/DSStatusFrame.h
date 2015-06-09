@@ -26,4 +26,11 @@
 @property (nonatomic , assign) CGFloat cellHeight;
 
 
+//cell frame
+@property (nonatomic , assign) CGRect frame;
+
+
+
 @end
+
+

@@ -160,6 +160,13 @@
 		A83835CD1B1C02F80050385F /* PhotoAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A83835BD1B1C02F80050385F /* PhotoAlbumManager.m */; };
 		A83835CE1B1C02F80050385F /* UIView+JKPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A83835BF1B1C02F80050385F /* UIView+JKPicker.m */; };
 		A83835D11B1C03930050385F /* DSComposePhotoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A83835D01B1C03930050385F /* DSComposePhotoViewCell.m */; };
+		A89BD0261B25385C00E55018 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BD0251B25385C00E55018 /* NSString+Additions.m */; };
+		A89BD06D1B26929B00E55018 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BD0611B26929B00E55018 /* OpenShare+Alipay.m */; };
+		A89BD06E1B26929B00E55018 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BD0631B26929B00E55018 /* OpenShare+QQ.m */; };
+		A89BD06F1B26929B00E55018 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BD0651B26929B00E55018 /* OpenShare+Renren.m */; };
+		A89BD0701B26929B00E55018 /* OpenShare+Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BD0671B26929B00E55018 /* OpenShare+Weibo.m */; };
+		A89BD0711B26929B00E55018 /* OpenShare+Weixin.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BD0691B26929B00E55018 /* OpenShare+Weixin.m */; };
+		A89BD0721B26929B00E55018 /* OpenShare.m in Sources */ = {isa = PBXBuildFile; fileRef = A89BD06B1B26929B00E55018 /* OpenShare.m */; };
 		A8BAB5FF1B16153B000F9043 /* DSAVStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BAB5FE1B16153B000F9043 /* DSAVStatus.m */; };
 		A8BAB6021B161BC7000F9043 /* DSAVComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BAB6011B161BC7000F9043 /* DSAVComment.m */; };
 		A8BAB7591B164087000F9043 /* d_aini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BAB6081B164086000F9043 /* d_aini@2x.png */; };
@@ -1062,6 +1069,21 @@
 		A83835BF1B1C02F80050385F /* UIView+JKPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JKPicker.m"; sourceTree = "<group>"; };
 		A83835CF1B1C03930050385F /* DSComposePhotoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSComposePhotoViewCell.h; path = Classes/Compose/View/Compose/DSComposePhotoViewCell.h; sourceTree = "<group>"; };
 		A83835D01B1C03930050385F /* DSComposePhotoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSComposePhotoViewCell.m; path = Classes/Compose/View/Compose/DSComposePhotoViewCell.m; sourceTree = "<group>"; };
+		A89BD0241B25385C00E55018 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Classes/Home/Tool/NSString+Additions.h"; sourceTree = "<group>"; };
+		A89BD0251B25385C00E55018 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Classes/Home/Tool/NSString+Additions.m"; sourceTree = "<group>"; };
+		A89BD0601B26929B00E55018 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
+		A89BD0611B26929B00E55018 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
+		A89BD0621B26929B00E55018 /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
+		A89BD0631B26929B00E55018 /* OpenShare+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+QQ.m"; sourceTree = "<group>"; };
+		A89BD0641B26929B00E55018 /* OpenShare+Renren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Renren.h"; sourceTree = "<group>"; };
+		A89BD0651B26929B00E55018 /* OpenShare+Renren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Renren.m"; sourceTree = "<group>"; };
+		A89BD0661B26929B00E55018 /* OpenShare+Weibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weibo.h"; sourceTree = "<group>"; };
+		A89BD0671B26929B00E55018 /* OpenShare+Weibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weibo.m"; sourceTree = "<group>"; };
+		A89BD0681B26929B00E55018 /* OpenShare+Weixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weixin.h"; sourceTree = "<group>"; };
+		A89BD0691B26929B00E55018 /* OpenShare+Weixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weixin.m"; sourceTree = "<group>"; };
+		A89BD06A1B26929B00E55018 /* OpenShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShare.h; sourceTree = "<group>"; };
+		A89BD06B1B26929B00E55018 /* OpenShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenShare.m; sourceTree = "<group>"; };
+		A89BD06C1B26929B00E55018 /* OpenShareHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShareHeader.h; sourceTree = "<group>"; };
 		A8BAB5FD1B16153B000F9043 /* DSAVStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAVStatus.h; path = Classes/Home/Model/DSAVStatus.h; sourceTree = "<group>"; };
 		A8BAB5FE1B16153B000F9043 /* DSAVStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAVStatus.m; path = Classes/Home/Model/DSAVStatus.m; sourceTree = "<group>"; };
 		A8BAB6001B161BC7000F9043 /* DSAVComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAVComment.h; path = Classes/Home/Model/DSAVComment.h; sourceTree = "<group>"; };
@@ -2481,6 +2503,35 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		A89BD0231B25383100E55018 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				A89BD0241B25385C00E55018 /* NSString+Additions.h */,
+				A89BD0251B25385C00E55018 /* NSString+Additions.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		A89BD05F1B26929B00E55018 /* openshare */ = {
+			isa = PBXGroup;
+			children = (
+				A89BD0601B26929B00E55018 /* OpenShare+Alipay.h */,
+				A89BD0611B26929B00E55018 /* OpenShare+Alipay.m */,
+				A89BD0621B26929B00E55018 /* OpenShare+QQ.h */,
+				A89BD0631B26929B00E55018 /* OpenShare+QQ.m */,
+				A89BD0641B26929B00E55018 /* OpenShare+Renren.h */,
+				A89BD0651B26929B00E55018 /* OpenShare+Renren.m */,
+				A89BD0661B26929B00E55018 /* OpenShare+Weibo.h */,
+				A89BD0671B26929B00E55018 /* OpenShare+Weibo.m */,
+				A89BD0681B26929B00E55018 /* OpenShare+Weixin.h */,
+				A89BD0691B26929B00E55018 /* OpenShare+Weixin.m */,
+				A89BD06A1B26929B00E55018 /* OpenShare.h */,
+				A89BD06B1B26929B00E55018 /* OpenShare.m */,
+				A89BD06C1B26929B00E55018 /* OpenShareHeader.h */,
+			);
+			path = openshare;
+			sourceTree = "<group>";
+		};
 		A8BAB6031B163FFE000F9043 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -3087,6 +3138,7 @@
 		A8DEEF2C1B12AC19003F8F1D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A89BD05F1B26929B00E55018 /* openshare */,
 				A80BBF4C1B20BA01002107D7 /* Emoji */,
 				A80BBF4A1B20B7EA002107D7 /* ImageIO.framework */,
 				A80BBF481B20B7E3002107D7 /* QuartzCore.framework */,
@@ -3346,6 +3398,7 @@
 		A8DEF0271B12FCC3003F8F1D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A89BD0231B25383100E55018 /* Tool */,
 				A8F395B21B13E7D3006CAEE0 /* View */,
 				A8F395A81B1367DC006CAEE0 /* Model */,
 				A8DEF0281B12FD42003F8F1D /* Controller */,
@@ -4396,6 +4449,7 @@
 				A80BBEFA1B20B384002107D7 /* XHMessage.m in Sources */,
 				A80BBF901B20D13A002107D7 /* DSConvNameVC.m in Sources */,
 				A80BBF1E1B20B384002107D7 /* XHMessageTextView.m in Sources */,
+				A89BD0721B26929B00E55018 /* OpenShare.m in Sources */,
 				A8DEEFC11B12AC19003F8F1D /* UIView+WebCacheOperation.m in Sources */,
 				A83835CC1B1C02F80050385F /* JKUtil.m in Sources */,
 				A8DEEFEA1B12B0AD003F8F1D /* UIView+Extension.m in Sources */,
@@ -4420,6 +4474,7 @@
 				A80BBF131B20B384002107D7 /* XHSoundManager.m in Sources */,
 				A8DEEFA81B12AC19003F8F1D /* NSObject+MJMember.m in Sources */,
 				A80BBF0A1B20B384002107D7 /* SETextMagnifierCaret.m in Sources */,
+				A89BD06F1B26929B00E55018 /* OpenShare+Renren.m in Sources */,
 				A8DEEFB21B12AC19003F8F1D /* MKAnnotationView+WebCache.m in Sources */,
 				A8DEEFBD1B12AC19003F8F1D /* UIImage+MultiFormat.m in Sources */,
 				A80BBF8A1B20CEE2002107D7 /* DSConvDetailMembersSubCell.m in Sources */,
@@ -4430,6 +4485,7 @@
 				A80BBF561B20BAF0002107D7 /* DSChatListVC.m in Sources */,
 				A80BBF8D1B20CFDF002107D7 /* DSUserInfoVC.m in Sources */,
 				A8D5188F1B1FFBC800640C36 /* FMResultSet.m in Sources */,
+				A89BD06E1B26929B00E55018 /* OpenShare+QQ.m in Sources */,
 				A80BBF5F1B20C2D4002107D7 /* DSCache.m in Sources */,
 				A8DEEF951B12AC19003F8F1D /* AFHTTPSessionManager.m in Sources */,
 				A8DEEF991B12AC19003F8F1D /* AFURLRequestSerialization.m in Sources */,
@@ -4459,6 +4515,7 @@
 				A8D5188B1B1FFBC800640C36 /* FMDatabase.m in Sources */,
 				A8DEF0201B12EE28003F8F1D /* DSCommonCell.m in Sources */,
 				A80BBF751B20C6EA002107D7 /* DSConvsVC.m in Sources */,
+				A89BD0711B26929B00E55018 /* OpenShare+Weixin.m in Sources */,
 				A80BBF121B20B384002107D7 /* XHPathCover.m in Sources */,
 				A80BBECF1B20B384002107D7 /* NSString+XHDiskSizeTransfrom.m in Sources */,
 				A8DEEFA41B12AC19003F8F1D /* MJType.m in Sources */,
@@ -4468,12 +4525,14 @@
 				A80BBEF81B20B384002107D7 /* XHEmotion.m in Sources */,
 				A8F42FF41B20DBA90085E648 /* AppDelegate.m in Sources */,
 				A8F395BF1B13EEC6006CAEE0 /* DSStatusDetailFrame.m in Sources */,
+				A89BD06D1B26929B00E55018 /* OpenShare+Alipay.m in Sources */,
 				A8F395F91B159365006CAEE0 /* DSComment.m in Sources */,
 				A8170F791B16E635004165E6 /* DSEmotionTool.m in Sources */,
 				A8DEEF9B1B12AC19003F8F1D /* AFURLSessionManager.m in Sources */,
 				A80BBF011B20B384002107D7 /* SEConstants.m in Sources */,
 				A80BBEDF1B20B384002107D7 /* XHMessageBubbleHelper.m in Sources */,
 				A8F395CD1B143217006CAEE0 /* DSStatusPhotoView.m in Sources */,
+				A89BD0701B26929B00E55018 /* OpenShare+Weibo.m in Sources */,
 				A8D518FF1B200A0700640C36 /* UIAlertView+AFNetworking.m in Sources */,
 				A83835C81B1C02F80050385F /* JKImagePickerController.m in Sources */,
 				A80BBF6B1B20C4C9002107D7 /* DSAbuseReport.m in Sources */,
@@ -4484,6 +4543,7 @@
 				A8DEEE6E1B12A918003F8F1D /* DSLolita.xcdatamodeld in Sources */,
 				A80BBF101B20B384002107D7 /* XHViewState.m in Sources */,
 				A8D5188D1B1FFBC800640C36 /* FMDatabasePool.m in Sources */,
+				A89BD0261B25385C00E55018 /* NSString+Additions.m in Sources */,
 				A80BBF591B20BB42002107D7 /* DSMessageViewController.m in Sources */,
 				A80BBF001B20B384002107D7 /* SECompatibility.m in Sources */,
 				A8DEEFB41B12AC19003F8F1D /* SDImageCache.m in Sources */,

@@ -23,7 +23,11 @@
     
     self.cellHeight = CGRectGetMaxY(self.statusToolbarFrame);
     
-    
+    CGFloat x = 0;
+    CGFloat y = 0;
+    CGFloat w = DSScreenWidth;
+    CGFloat h = CGRectGetMaxY(self.statusToolbarFrame);
+    self.frame = CGRectMake(x,y, w, h);
 }
 
 //计算feed整体frame

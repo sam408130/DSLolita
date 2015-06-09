@@ -28,7 +28,10 @@
     [DSAVStatus registerSubclass];
 
     [AVOSCloud setApplicationId:ApplicationID clientKey:ClientKey];
-    
+    [OpenShare connectQQWithAppId:@"1103194207"];
+    [OpenShare connectWeiboWithAppKey:@"402180334"];
+    [OpenShare connectWeixinWithAppId:@"wxd930ea5d5a258f4f"];
+    [OpenShare connectRenrenWithAppId:@"228525" AndAppKey:@"1dd8cba4215d4d4ab96a49d3058c1d7f"];
     
     //1.创建窗口
     self.window = [[UIWindow alloc] init];
@@ -150,6 +153,15 @@
         [AVAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
     }
     DLog(@"receiveRemoteNotification");
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    if ([OpenShare handleOpenURL:url]){
+        return  YES;
+    }
+    
+    return  NO;
 }
 
 #pragma mark - Core Data stack

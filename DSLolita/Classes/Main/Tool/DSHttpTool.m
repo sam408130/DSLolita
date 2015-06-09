@@ -120,7 +120,7 @@
     [query includeKey:@"comments.commentUser"];
     [query includeKey:@"comments.toUser"];
     [query setCachePolicy:kAVCachePolicyNetworkElseCache];
-     query.limit = 30;
+     //query.limit = 30;
     [query findObjectsInBackgroundWithBlock:block];
 }
 
@@ -135,7 +135,7 @@
     [query includeKey:@"comments.toUser"];
     [query whereKey:@"objectId" notContainedIn:loadedStatusIDs];
     [query setCachePolicy:kAVCachePolicyNetworkElseCache];
-    query.limit = 30;
+    //query.limit = 30;
     [query findObjectsInBackgroundWithBlock:block];
 
 }
