@@ -672,7 +672,16 @@ static NSString *kJKAssetsFooterViewIdentifier = @"kJKAssetsFooterViewIdentifier
     asset.groupPropertyID = groupID;
     asset.groupPropertyURL = groupURL;
     asset.assetPropertyURL = assetURL;
-    asset.photo = img;
+    ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
+    
+            [lib assetForURL:assetURL resultBlock:^(ALAsset *myasset){
+                if (myasset) {
+                   asset.photo = [UIImage imageWithCGImage:[[myasset defaultRepresentation] fullScreenImage]];
+                }
+            }failureBlock:^(NSError *error){
+    
+            }];
+
     [self.selectedAssetArray addObject:asset];
     [self.assetsGroupsView addAssetSelected:asset];
 }
