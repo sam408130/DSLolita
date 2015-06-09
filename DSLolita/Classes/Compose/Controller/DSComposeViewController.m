@@ -531,17 +531,7 @@
     
 }
 
-//#pragma mark - UIImagePickerControllerDelegate
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-//{
-//    [picker dismissViewControllerAnimated:YES completion:nil];//销毁modal控制器
-//    
-//    // 1.取出选中的图片
-//    UIImage *image = info[UIImagePickerControllerOriginalImage];
-//    
-//    // 2.添加图片到相册中
-//    [self.photosView addImage:image];
-//}
+
 
 /**
  *  监听文字该表
