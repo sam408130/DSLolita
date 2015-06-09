@@ -57,39 +57,6 @@
 }
 
 
-//- (void)draw{
-//    if (_drawed){
-//        return;
-//    }
-//    _drawed = YES;
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//       
-//        CGRect rect = self.statusFrame.frame;
-//        UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0);
-//        CGContextRef context = UIGraphicsGetCurrentContext();
-//        CGContextFillRect(context, rect);
-//        
-//        {
-//            CGRect nameframe =  self.statusFrame.statusDetailFrame.originalFrame.nameFrame;
-//            float x = nameframe.origin.x;
-//            float y = nameframe.origin.y;
-//            NSString *username = self.statusFrame.status.user.username;
-//            [username drawInContext:context withPosition:CGPointMake(x, y) andFont:DSStatusOriginalNameFont andTextColor:[UIColor blackColor] andHeight:rect.size.height];
-//        
-//            
-//            float tx = x;
-//            float ty = y + DSStatusCellInset;
-//            NSString *t = self.statusFrame.status.created_at;
-//            [t drawInContext:context withPosition:CGPointMake(tx, ty) andFont:DSStatusOriginalTimeFont andTextColor:DSColor(242, 153, 92) andHeight:rect.size.height];
-//        }
-//
-//        
-//        UIImage *temp =
-//        
-//    });
-//    
-//}
-
 
 - (void)setupDetailView {
     

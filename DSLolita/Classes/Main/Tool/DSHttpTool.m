@@ -233,6 +233,8 @@
         
         status.attitudes_count = (int)((NSArray *)[object objectForKey:@"digUsers"]).count;
         
+        status.digusers = [object objectForKey:@"digUsers"];
+        
         //status.reposts_count = (int)[object objectForKey:@"repostCount"];
         
         //AVObject *retweetedstatue = [object objectForKey:@"retweetedStatus"];

@@ -134,19 +134,15 @@
 - (void)setStatus:(DSStatus *)status {
     
     _status = status;
+
     
-    AVQuery *query = [AVQuery queryWithClassName:@"Album"];
-    AVObject *cellstatus = [query getObjectWithId:status.idstr];
-    
-    AVUser *user = [AVUser currentUser];
-    NSMutableArray *digUsers = [cellstatus objectForKey:@"digUsers"];
-    
-    if ([digUsers containsObject:user]){
+    if ([status.digusers containsObject:[AVUser currentUser]]){
         [self.attitudesBtn setImage:[UIImage imageNamed:@"timeline_icon_like"] forState:UIControlStateNormal];
     }else {
         
         [self.attitudesBtn setImage:[UIImage imageNamed:@"timeline_icon_like_disable"] forState:UIControlStateNormal];
     }
+    
     
     [self setupButtonTitle:self.repostsBtn count:status.reposts_count defaultTitle:@"转发"];
     [self setupButtonTitle:self.commentsBtn count:status.comments_count defaultTitle:@"评论"];

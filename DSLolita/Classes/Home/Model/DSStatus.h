@@ -50,7 +50,7 @@
 //是否有转发Feed
 @property (nonatomic , getter=isRetweeted) bool retweeted;
 
-
-
+//喜欢的用户
+@property (nonatomic , strong) NSArray *digusers;
 
 @end
