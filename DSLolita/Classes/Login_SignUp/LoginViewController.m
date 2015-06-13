@@ -95,11 +95,11 @@
         NSString *username = [txtFieldUsername.text stringByTrimmingCharactersInSet:whiteNewChars];
         NSString *password = [txtFieldPassword.text stringByTrimmingCharactersInSet:whiteNewChars];
         
-        viewLoading = [_LolitaFunctions showLoadingViewWithText:@"登录中" inView:self.view];
+        //viewLoading = [_LolitaFunctions showLoadingViewWithText:@"登录中" inView:self.view];
         
         [AVUser logInWithUsernameInBackground:username password:password
                                         block:^(AVUser *user , NSError *error){
-                                            [_LolitaFunctions hideLoadingView:viewLoading];
+                                            //[_LolitaFunctions hideLoadingView:viewLoading];
                                             if (user != nil){
                                                 
                                                 DSTabBarController *vc = [[DSTabBarController alloc] init];

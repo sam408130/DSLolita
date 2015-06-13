@@ -105,6 +105,9 @@
     
     int count = (int)self.picUrls.count;
     int maxCols = DSStatusPhotosMaxCols(count);
+
+    
+    
     for (int i = 0; i < count; i++){
         DSStatusPhotoView *photoView = self.subviews[i];
         photoView.width = DSStatusPhotosW;
