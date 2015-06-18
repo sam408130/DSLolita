@@ -17,7 +17,7 @@ lolita objective-c 版本
   * SDWebImage
   * MessageDisplayKit
 
-最近在找工作，联系方式qq:197329984
+联系方式qq:197329984
 
 # Licence
 MIT
