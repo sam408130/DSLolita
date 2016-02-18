@@ -228,8 +228,12 @@
         status.user = feeduser;
 
         NSString *text = [object objectForKey:@"albumContent"];
-        
-        status.attributedText = [[NSAttributedString alloc] initWithString:text];
+        if(text){
+            status.attributedText = [[NSAttributedString alloc] initWithString:text];
+        }else{
+            status.attributedText = [[NSAttributedString alloc] initWithString:@""];
+        }
+        //status.attributedText = [[NSAttributedString alloc] initWithString:text];
         
         status.attitudes_count = (int)((NSArray *)[object objectForKey:@"digUsers"]).count;
         
